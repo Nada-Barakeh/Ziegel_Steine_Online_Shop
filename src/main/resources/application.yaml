@@ -1,0 +1,3 @@
+spring:
+  application:
+    name: ziegelsteine_online_shop
