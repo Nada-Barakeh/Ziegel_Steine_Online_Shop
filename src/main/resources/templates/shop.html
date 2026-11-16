@@ -18,7 +18,11 @@
     <th>Menge</th>
     </tr>
 
-    <tr th:each>
+    <tr th:each="produkt :${produkten}">
+        <td th:text=${"produkt.name"}>produktName:</td>
+        <td th:value="${produkt.price} + 'euro' ">produktPrice:</td>
+
+
 
 
 

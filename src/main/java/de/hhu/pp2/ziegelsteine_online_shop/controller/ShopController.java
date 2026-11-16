@@ -16,9 +16,11 @@ public class ShopController {
 
     @GetMapping
     public String displayProdukten(Model model){
-        model.addAttribute("producten",service.allProducts());
+        model.addAttribute("produkten",service.allProducts());
         return "shop";
     }
+
+
 
 
 
