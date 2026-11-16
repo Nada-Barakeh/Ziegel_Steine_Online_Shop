@@ -3,6 +3,7 @@ package de.hhu.pp2.ziegelsteine_online_shop;
 import de.hhu.pp2.ziegelsteine_online_shop.controller.ShopController;
 import de.hhu.pp2.ziegelsteine_online_shop.model.Produkt;
 import de.hhu.pp2.ziegelsteine_online_shop.model.ProduktService;
+import de.hhu.pp2.ziegelsteine_online_shop.model.Warenkorb;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,6 +52,20 @@ public class ShopControllerTest {
                 .andExpect(view().name("redirect:/"))
                 .andExpect(status().is3xxRedirection());
 
+
+    }
+
+    @Test
+    @DisplayName("Get /bezahlen mit Warenkorb  zeigt Items mit Gesammt price")
+    void test3() throws Exception{
+        Warenkorb korb = new Warenkorb();
+
+        mvc.perform(get("/bezahlen")
+                .param("korb1","korb"))
+                .andExpect(model().attribute("total",korb.getGesamtPreis()))
+                .andExpect(model().attribute("items", korb.getItems()))
+                .andExpect(view().name("bezahlen"))
+                .andExpect(status().isOk());
 
     }
 

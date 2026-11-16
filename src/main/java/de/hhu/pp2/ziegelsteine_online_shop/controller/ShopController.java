@@ -53,6 +53,15 @@ public class ShopController {
     }
 
 
+    //Bezahlen seite zeigen:
+    @GetMapping("/bezahlen")
+    public String bezahlungen(@ModelAttribute("korb") Warenkorb korb, Model model){
+        model.addAttribute("total",korb.getGesamtPreis());
+        model.addAttribute("items", korb.getItems());
+        return "bezahlen";
+
+    }
+
 
 
     }
