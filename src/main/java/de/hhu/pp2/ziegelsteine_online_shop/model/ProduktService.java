@@ -16,7 +16,6 @@ public class ProduktService {
             new Produkt(5L,"Wand Ziegel" , 0.90)
     );
 
-// Default Konstruktur die WarenKorb am anfang ist leer
 
     public List<Produkt> allProducts(){
         return Collections.unmodifiableList(produkte);
