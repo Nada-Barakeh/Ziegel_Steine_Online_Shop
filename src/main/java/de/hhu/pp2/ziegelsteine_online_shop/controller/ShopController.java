@@ -62,6 +62,13 @@ public class ShopController {
 
     }
 
+    // den Auftrag bestätigen
+    @PostMapping("/order")
+    public String order(@ModelAttribute("korb") Warenkorb korb, Model model){
+        model.addAttribute("items",korb.getItems());
+        model.addAttribute("total",korb.getGesamtPreis());
+        return "order";
+    }
 
 
     }

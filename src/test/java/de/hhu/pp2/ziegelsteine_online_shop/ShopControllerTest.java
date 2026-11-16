@@ -56,7 +56,7 @@ public class ShopControllerTest {
     }
 
     @Test
-    @DisplayName("Get /bezahlen mit Warenkorb  zeigt Items mit Gesammt price")
+    @DisplayName("Get /bezahlen mit Warenkorb  zeigt Items mit Gesammt price korrekt")
     void test3() throws Exception{
         Warenkorb korb = new Warenkorb();
 
@@ -69,6 +69,22 @@ public class ShopControllerTest {
 
     }
 
+
+    @Test
+    @DisplayName("Post /order mit ein Warenkorb zeigt Items mit Gesammt price um zu betätigen")
+    void test4() throws Exception{
+        Warenkorb korb = new Warenkorb();
+
+        mvc.perform(post("/order")
+               .param("korb2","korb"))
+                .andExpect(model().attribute("items", korb.getItems()))
+                .andExpect((model().attribute("total",korb.getGesamtPreis())))
+                .andExpect(status().isOk())
+                .andExpect(view().name("order"));
+
+
+
+    }
 
 
 }
