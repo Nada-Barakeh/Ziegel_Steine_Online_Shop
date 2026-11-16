@@ -6,7 +6,7 @@ import java.util.Collections;
 import java.util.List;
 
 @Service
-public class WarenKorbService {
+public class ProduktService {
 
     private final List<Produkt> produkte = List.of(
             new Produkt(1L, "Rote Ziegel", 0.50),

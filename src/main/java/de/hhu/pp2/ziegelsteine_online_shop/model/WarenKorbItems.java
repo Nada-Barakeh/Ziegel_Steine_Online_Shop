@@ -1,18 +1,18 @@
 package de.hhu.pp2.ziegelsteine_online_shop.model;
 
-public class Items {
+public class WarenKorbItems {
 //falls den Kunde mehrmals den produkt verkauft
 
     private Produkt produkt;
-    private int quantity;
+    private int menge;
 
-    public Items(Produkt produkt , int quantity){
+    public WarenKorbItems(Produkt produkt , int menge){
         this.produkt=produkt;
-        this.quantity=quantity;
+        this.menge=menge;
     }
 
     public double getTotalPrice(){
-        return produkt.getPrice()*quantity;
+        return produkt.getPrice()*menge;
     }
 
     public Produkt getProdukt() {
@@ -24,11 +24,11 @@ public class Items {
     }
 
 
-    public int getQuantity() {
-        return quantity;
+    public int getMenge() {
+        return menge;
     }
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
+    public void setMenge(int menge) {
+        this.menge = menge;
     }
 }
