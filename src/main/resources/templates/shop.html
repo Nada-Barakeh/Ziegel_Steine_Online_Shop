@@ -19,17 +19,21 @@
     </tr>
 
     <tr th:each="produkt :${produkten}">
-        <td th:text=${"produkt.name"}>produktName:</td>
-        <td th:value="${produkt.price} + 'euro' ">produktPrice:</td>
+        <td th:text="${produkt.name}">produktName:</td>
+        <td th:text="${produkt.price} + 'euro' ">produktPrice:</td>
+
+        <form method="post" action="/add">
+        <td>
+            <input type="hidden" name="id" th:value="${produkt.id}">
+            <input type="number" name="menge" value="1" min="1">
+        </td>
 
 
-
-
+           <td> <button type="submit">Add</button>
+           </td>
+        </form>
 
     </tr>
-
-
-
 
 </table>
 

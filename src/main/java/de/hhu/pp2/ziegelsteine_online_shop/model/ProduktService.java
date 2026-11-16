@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.*;
 
 @Service
 public class ProduktService {
@@ -19,6 +20,14 @@ public class ProduktService {
 
     public List<Produkt> allProducts(){
         return Collections.unmodifiableList(produkte);
+    }
+
+    public Produkt findById(Long id){
+        produkte.stream().filter(p->p.getId().equals(id))
+                .findFirst()
+                .orElse(null); // falls nicht vorhanden gibt null zuruck
+
+        return null;
     }
 
 }
