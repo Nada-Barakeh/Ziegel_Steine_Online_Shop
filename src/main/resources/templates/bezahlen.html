@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kasse</title>
+</head>
+
+
+<body>
+<h1>Zur Kasse gehen</h1>
+
+<table>
+    <tr>
+        <th>Produkt:</th>
+        <th>Menge;</th>
+        <th>Summe;</th>
+    </tr>
+    <tr th:each="item:${items}">
+        <td th:text="${item.produkt.name}"></td>
+        <td th:text="${item.menge}"></td>
+        <td th:text="${item.totalPrice}"></td>
+    </tr>
+</table>
+
+<p><STRONG>Gesammt: <span th:text="${total}">0</span>Euro</STRONG></p>
+
+<form method="post" action="/order">
+    <button type="submit">Bestätigen & zur Kasse gehen</button>
+</form>
+
+
+
+
+</body>
+</html>
+
+

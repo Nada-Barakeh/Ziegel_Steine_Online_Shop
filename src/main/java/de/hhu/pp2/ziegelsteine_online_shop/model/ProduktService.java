@@ -19,15 +19,16 @@ public class ProduktService {
 
 
     public List<Produkt> allProducts(){
+
         return Collections.unmodifiableList(produkte);
     }
 
     public Produkt findById(Long id){
-        produkte.stream().filter(p->p.getId().equals(id))
+        return produkte.stream().filter(p->p.getId().equals(id))
                 .findFirst()
-                .orElse(null); // falls nicht vorhanden gibt null zuruck
+                .orElse(null); // falls kein Produkt vorhanden gibt null zuruck
 
-        return null;
+
     }
 
 }

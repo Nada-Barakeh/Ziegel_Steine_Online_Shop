@@ -16,28 +16,38 @@
     <th>Name</th>
     <th>Price</th>
     <th>Menge</th>
+
     </tr>
 
     <tr th:each="produkt :${produkten}">
         <td th:text="${produkt.name}">produktName:</td>
-        <td th:text="${produkt.price} + 'euro' ">produktPrice:</td>
+        <td th:text="${produkt.price} + 'euro' ">0.00 Euro</td>
 
-        <form method="post" action="/add">
         <td>
+
+            <form method="post" action="/add">
             <input type="hidden" name="id" th:value="${produkt.id}">
             <input type="number" name="menge" value="1" min="1">
+             <button type="submit">Add</button>
+            </form>
+
         </td>
 
-
-           <td> <button type="submit">Add</button>
-           </td>
-        </form>
 
     </tr>
 
 </table>
 
+<br>
+
+<a href="/bezahlen">bezahlen</a>
 
 </body>
 
 </html>
+
+
+
+
+
+

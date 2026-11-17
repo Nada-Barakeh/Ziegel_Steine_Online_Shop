@@ -47,7 +47,7 @@ public class ShopControllerTest {
 
         mvc.perform(post("/add")
                 .param("id", "123")
-                .param("quantity", "3")
+                .param("menge", "3")
         )
                 .andExpect(view().name("redirect:/"))
                 .andExpect(status().is3xxRedirection());

@@ -32,7 +32,7 @@ public class ShopController {
 
     //produkt zu Warenkorp addieren
     @PostMapping("/add")
-    public String add(@RequestParam Long id , @RequestParam(defaultValue = "1") int quantity,
+    public String add(@RequestParam Long id , @RequestParam(defaultValue = "1") int menge,
                       @ModelAttribute("korb") Warenkorb korb){
      //  Warenkorb korb =(Warenkorb)session.getAttribute("warenkorb");
        //falls den korb leer ist soll ein nuees korb erzeugen
@@ -45,7 +45,7 @@ public class ShopController {
               return "redirect:/";
           }
         //produkt addieren:
-         korb.addItem(service.findById(id), quantity);
+         korb.addItem(service.findById(id), menge);
 
 
         return "redirect:/";

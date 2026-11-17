@@ -2,9 +2,26 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Bestätigung</title>
 </head>
 <body>
+
+<h1>Vielen Danke zur Ihre Einkauf</h1>
+<table>
+    <tr>
+        <th>Produkt:</th>
+        <th>Menge;</th>
+        <th>Summe;</th>
+    </tr>
+    <tr th:each="item:${items}">
+        <td th:text="${item.produkt.name}"></td>
+        <td th:text="${item.menge}"></td>
+        <td th:text="${item.totalPrice}"></td>
+    </tr>
+
+</table>
+
+<p><STRONG>Gesammt: <span th:text="${total}">0</span>Euro</STRONG></p>
 
 </body>
 </html>

@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class Warenkorb {
+    // unsere korb ist am Anfang leer
     private List<WarenKorbItems> items = new ArrayList<>();
 
 
@@ -34,6 +35,7 @@ public class Warenkorb {
 
 
     public List<WarenKorbItems> getItems() {
+
         return Collections.unmodifiableList(items);
     }
 
